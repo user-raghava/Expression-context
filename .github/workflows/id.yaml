@@ -25,5 +25,3 @@ jobs:
       steps:
         - name: print job output
           run: echo "Artifact from job1 is ${{ needs.job1.outputs.artifact }}"
-
-    
