@@ -18,7 +18,7 @@ jobs:
         - id: second
           run: |
             echo "Version is: ${{ steps.step1.outputs.version }}"
-            echo "Artifact file: ${{ steps.step1.outputs.artifact }}"
+            echo "Artifact file: ${{ steps.job1.outputs.artifact }}"
    job2:
       needs: job1
       runs-on: ubuntu-latest
