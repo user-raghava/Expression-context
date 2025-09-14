@@ -29,7 +29,8 @@ jobs:
             run: echo '${{  toJson(env) }}'
 
           - name: same environment
-            env:
+            env: # environment variables for same environment
+          
                 ORG_NAME: 123 limited
             run: echo '${{ env.ORG_NAME }}'
 
