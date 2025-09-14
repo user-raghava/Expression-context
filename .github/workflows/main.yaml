@@ -39,7 +39,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: print vars
-              run: echo 'group = ${{ vars.GROUP_NAME }}  user = ${{ vars.USERNAME }} token = ${{ secrets.TOKEN  }}'        
+              run: echo 'group = ${{ vars.GROUP_NAME }}  user = ${{ vars.USER_NAME }} token = ${{ secrets.TOKEN  }}'        
             - name: Github automatically sets some environment variables which start with GITHUB_ ...
               run: printenv          
             
