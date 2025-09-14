@@ -13,6 +13,7 @@ env:
     
 
 jobs:
+  # job1
     context-job:
         runs-on: ubuntu-latest
         env: #environment variables for this job
@@ -33,6 +34,12 @@ jobs:
           
                 ORG_NAME: 123 limited
             run: echo '${{ env.ORG_NAME }}'
-
-          
+  # job2
+    vars-job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: print vars
+              run: echo 'group = ${{ vars.GROUP_NAME }}  user = ${{ vars.USERNAME }} token = ${{ secrets.TOKEN  }}'        
+            - name: Github automatically sets some environment variables which start with GITHUB_ ...
+              run: printenv          
             
