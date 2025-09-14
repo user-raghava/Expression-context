@@ -16,3 +16,15 @@ jobs:
             run: echo '${{  toJson(env) }}'
           - name: Show complete runner context
             run: echo '${{  toJson(runner) }}'
+          - name: Show complete var context
+            run: echo '${{  toJson(vars) }}'
+          - name: Show complete job context
+            run: echo '${{  toJson(job) }}'
+          - name: Show complete steps context
+            run: echo '${{  toJson(steps) }}'
+          - name: Show complete needs context
+            run: echo '${{  toJson(needs) }}'
+          - name: Show complete input context
+            run: echo '${{  toJson(inputs) }}'
+          - name: Show complete strategy context
+            run: echo '${{  toJson(strategy) }}'
