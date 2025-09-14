@@ -1,7 +1,8 @@
 name: Step Output Demo
 on:
-  branchs:
-    - main
+  push:
+    branches:
+      - main
       
 jobs:
   job1:
