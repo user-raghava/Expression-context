@@ -1,0 +1,29 @@
+name: Step Output Demo
+on:
+  branchs:
+    - main
+      
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    outputs: # define job outputs
+        artifact: my-app
+      
+    steps:
+      - id: step1
+        run: |
+          echo "version=1.2.3" >> $GITHUB_OUTPUT
+
+      - id: second
+        run: |
+          echo "Version is: ${{ steps.step1.outputs.version }}"
+          echo "Artifact file: ${{ steps.step1.outputs.artifact }}"
+
+    job2:
+      needs: job1
+      runs-on: ubuntu-latest
+      steps:
+        - name: print job output
+          run: echo "Artifact from job1 is ${{ needs.job1.outputs.artifact }}"
+
+    
