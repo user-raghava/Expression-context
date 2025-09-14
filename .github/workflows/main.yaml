@@ -9,11 +9,9 @@ on:
 env:
     GLOBAL_ENV_VAR: learning thoughts global
     ORG_NAME: xyz limited
-
-    
-
+   
 jobs:
-  # job1
+  # job1- Environment variables
     context-job:
         runs-on: ubuntu-latest
         env: #environment variables for this job
@@ -34,7 +32,8 @@ jobs:
           
                 ORG_NAME: 123 limited
             run: echo '${{ env.ORG_NAME }}'
-  # job2
+  
+  # job2 variables and secrets
     vars-job:
         runs-on: ubuntu-latest
         steps:
