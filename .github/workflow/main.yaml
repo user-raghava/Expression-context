@@ -1,0 +1,12 @@
+---
+name: github expression and context
+on:
+    push:
+      branches:
+        - main
+
+jobs:
+    context-job:
+        runs-on: ubuntu-latest
+        steps:
+          - run: "echo Repo: ${{ github.repository }} by ${{  github.actor }}"
