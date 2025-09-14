@@ -5,26 +5,33 @@ on:
       branches:
         - main
 
+# environment variables
+env:
+    GLOBAL_ENV_VAR: learning thoughts global
+    ORG_NAME: xyz limited
+
+    
+
 jobs:
     context-job:
         runs-on: ubuntu-latest
+        env: #environment variables for this job
+            JOB_ENV_VAR: learning thoughts job
+            ORG_NAME: abc limited
+
         steps:
-          - run: "echo Repo: ${{ github.repository }} by ${{  github.actor }}"
-          - name: Show complete github context
-            run: echo '${{  toJson(github) }}'
+          - name: Steps examples
+            env: #environment variables for this step
+              STEP_VAR: learning thoughts step
+            run: echo '${{ env.GLOBAL_ENV_VAR }}  ${{ env.JOB_ENV_VAR }}  ${{ env.STEP_VAR }}'
+
           - name: Show complete env context
             run: echo '${{  toJson(env) }}'
-          - name: Show complete runner context
-            run: echo '${{  toJson(runner) }}'
-          - name: Show complete var context
-            run: echo '${{  toJson(vars) }}'
-          - name: Show complete job context
-            run: echo '${{  toJson(job) }}'
-          - name: Show complete steps context
-            run: echo '${{  toJson(steps) }}'
-          - name: Show complete needs context
-            run: echo '${{  toJson(needs) }}'
-          - name: Show complete input context
-            run: echo '${{  toJson(inputs) }}'
-          - name: Show complete strategy context
-            run: echo '${{  toJson(strategy) }}'
+
+          - name: same environment
+            env:
+                ORG_NAME: 123 limited
+            run: echo '${{ env.ORG_NAME }}'
+
+          
+            
